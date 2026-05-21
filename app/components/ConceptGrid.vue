@@ -4,8 +4,11 @@ import SkillsConcept from '~/components/concepts/SkillsConcept.vue'
 import SubagentsConcept from '~/components/concepts/SubagentsConcept.vue'
 import McpConcept from '~/components/concepts/McpConcept.vue'
 import HooksConcept from '~/components/concepts/HooksConcept.vue'
+import ClaudeMdConcept from '~/components/concepts/ClaudeMdConcept.vue'
+import SlashCommandsConcept from '~/components/concepts/SlashCommandsConcept.vue'
+import PlanModeConcept from '~/components/concepts/PlanModeConcept.vue'
 
-const { list } = useConcepts()
+const { list, bonus } = useConcepts()
 const expanded = ref<ConceptId | null>(null)
 
 function toggle(id: ConceptId) {
@@ -17,6 +20,9 @@ const demoByConcept = {
   subagents: SubagentsConcept,
   mcp: McpConcept,
   hooks: HooksConcept,
+  claudemd: ClaudeMdConcept,
+  slashcommands: SlashCommandsConcept,
+  planmode: PlanModeConcept,
 }
 </script>
 
@@ -38,10 +44,38 @@ const demoByConcept = {
         </p>
       </div>
 
-      <!-- Grid -->
+      <!-- Core grid -->
       <div class="space-y-4">
         <ConceptCard
           v-for="concept in list"
+          :key="concept.id"
+          :concept="concept"
+          :expanded="expanded === concept.id"
+          @toggle="toggle(concept.id)"
+        >
+          <template #demo>
+            <component :is="demoByConcept[concept.id]" />
+          </template>
+        </ConceptCard>
+      </div>
+
+      <!-- Bonus section -->
+      <div class="mt-20 mb-8">
+        <p class="font-mono text-xs uppercase tracking-[0.3em] text-[var(--color-text-muted)] mb-3">
+          // bonus
+        </p>
+        <h3 class="font-display text-2xl md:text-3xl font-bold leading-tight">
+          <span class="glow-text-yellow">3 more</span> you'll meet on day one.
+        </h3>
+        <p class="mt-3 text-[var(--color-text-muted)] max-w-xl text-sm">
+          Less fundamental than the core four, but you'll bump into these the moment you open
+          Claude Code.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <ConceptCard
+          v-for="concept in bonus"
           :key="concept.id"
           :concept="concept"
           :expanded="expanded === concept.id"
