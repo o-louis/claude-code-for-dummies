@@ -1,4 +1,11 @@
-export type ConceptId = 'skills' | 'subagents' | 'mcp' | 'hooks'
+export type ConceptId =
+  | 'skills'
+  | 'subagents'
+  | 'mcp'
+  | 'hooks'
+  | 'claudemd'
+  | 'slashcommands'
+  | 'planmode'
 
 export interface Concept {
   id: ConceptId
@@ -16,7 +23,7 @@ export interface Concept {
     result: string
   }
   command: string
-  accent: 'green' | 'cyan' | 'purple' | 'orange'
+  accent: 'green' | 'cyan' | 'purple' | 'orange' | 'yellow'
   hexAccent: string
   icon: string
 }
@@ -124,8 +131,88 @@ const concepts: Concept[] = [
   },
 ]
 
+const bonusConcepts: Concept[] = [
+  {
+    id: 'claudemd',
+    index: '05',
+    name: 'CLAUDE.md',
+    tagline: 'The house rules Claude reads before every job',
+    analogy: {
+      title: 'The new-hire handbook',
+      line: 'A short doc on the team\'s desk. "Here\'s how we work, here\'s what to avoid." Every new task starts by reading it.',
+    },
+    pitch:
+      "CLAUDE.md is a markdown file at the root of your project. Claude loads it automatically and treats it as standing orders: stack, conventions, things to never touch.",
+    howItWorks: [
+      "You drop a CLAUDE.md at the repo root (or run /init to generate one).",
+      "Claude reads it at the start of every session — no need to re-explain context.",
+      "You update it as the project evolves. It's your single source of truth.",
+    ],
+    example: {
+      prompt: 'Refactor this component.',
+      result: '[CLAUDE.md loaded] → applies your TS rules, your naming, your test policy automatically',
+    },
+    command: '$ claude --explain claude-md',
+    accent: 'yellow',
+    hexAccent: '#ffe066',
+    icon: 'lucide:file-text',
+  },
+  {
+    id: 'slashcommands',
+    index: '06',
+    name: 'Slash commands',
+    tagline: 'Built-in shortcuts you type to control Claude',
+    analogy: {
+      title: 'The keyboard shortcuts',
+      line: "Like ⌘K in a fancy editor. One slash, one verb, instant action — no need to explain what you want in a sentence.",
+    },
+    pitch:
+      "Slash commands are typed actions starting with `/`. Some are built in (/help, /clear, /init), others are custom — you can ship your own as a markdown file.",
+    howItWorks: [
+      "Type `/` at the start of a message — a menu pops up.",
+      "Pick a built-in (e.g. /clear to wipe the conversation) or your own.",
+      "Custom commands live as markdown files; you can share them across projects.",
+    ],
+    example: {
+      prompt: '/init',
+      result: '[slash command] → generates a CLAUDE.md tailored to this repo',
+    },
+    command: '$ claude --explain slash-commands',
+    accent: 'yellow',
+    hexAccent: '#ffe066',
+    icon: 'lucide:square-slash',
+  },
+  {
+    id: 'planmode',
+    index: '07',
+    name: 'Plan mode',
+    tagline: 'Claude drafts the plan before touching a single file',
+    analogy: {
+      title: 'The blueprint before the build',
+      line: "An architect doesn\'t pour concrete on day one — they sketch the floor plan, you sign off, then crews show up.",
+    },
+    pitch:
+      "Plan mode forces Claude to lay out the approach (files to touch, steps, risks) and wait for your green light before writing any code. Great for non-trivial changes.",
+    howItWorks: [
+      "Enter plan mode (shift+tab twice, or via the picker).",
+      "Claude explores read-only and produces a written plan.",
+      "You validate, redirect, or reject — only then does Claude execute.",
+    ],
+    example: {
+      prompt: 'Add OAuth login to the app.',
+      result: '[plan mode] → drafts a 6-step plan with risks → waits for OK → implements',
+    },
+    command: '$ claude --explain plan-mode',
+    accent: 'yellow',
+    hexAccent: '#ffe066',
+    icon: 'lucide:list-todo',
+  },
+]
+
 export const useConcepts = () => {
   const list = readonly(concepts)
-  const byId = (id: ConceptId) => concepts.find((c) => c.id === id)
-  return { list, byId }
+  const bonus = readonly(bonusConcepts)
+  const byId = (id: ConceptId) =>
+    concepts.find((c) => c.id === id) ?? bonusConcepts.find((c) => c.id === id)
+  return { list, bonus, byId }
 }

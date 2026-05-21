@@ -24,6 +24,9 @@
   --color-subagents: #5cf2ff;
   --color-mcp: #b66cff;
   --color-hooks: #ff9558;
+  --color-claudemd: #ffe066;
+  --color-slashcommands: #ffe066;
+  --color-planmode: #ffe066;
 
   --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
   --font-display: 'Space Grotesk', system-ui, sans-serif;
@@ -33,6 +36,7 @@
   --shadow-glow-cyan: 0 0 24px rgb(92 242 255 / 0.35), 0 0 64px rgb(92 242 255 / 0.15);
   --shadow-glow-purple: 0 0 24px rgb(182 108 255 / 0.35), 0 0 64px rgb(182 108 255 / 0.15);
   --shadow-glow-orange: 0 0 24px rgb(255 149 88 / 0.35), 0 0 64px rgb(255 149 88 / 0.15);
+  --shadow-glow-yellow: 0 0 24px rgb(255 224 102 / 0.3), 0 0 64px rgb(255 224 102 / 0.12);
 }
 
 @layer base {
@@ -107,6 +111,10 @@
     color: var(--color-neon-orange);
     text-shadow: 0 0 10px rgb(255 149 88 / 0.6), 0 0 20px rgb(255 149 88 / 0.3);
   }
+  .glow-text-yellow {
+    color: var(--color-neon-yellow);
+    text-shadow: 0 0 10px rgb(255 224 102 / 0.55), 0 0 20px rgb(255 224 102 / 0.25);
+  }
 
   .terminal-frame {
     background: var(--color-bg-elevated);
@@ -144,6 +152,10 @@
   .neon-border-orange {
     border: 1px solid color-mix(in srgb, var(--color-neon-orange) 40%, transparent);
     box-shadow: var(--shadow-glow-orange);
+  }
+  .neon-border-yellow {
+    border: 1px solid color-mix(in srgb, var(--color-neon-yellow) 35%, transparent);
+    box-shadow: var(--shadow-glow-yellow);
   }
 
   .blink-cursor::after {
