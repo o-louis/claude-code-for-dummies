@@ -29,12 +29,12 @@ const demoByConcept = {
           // section 01
         </p>
         <h2 class="font-display text-4xl md:text-6xl font-bold leading-[0.95] tracking-tight">
-          Les <span class="glow-text-green">4 concepts</span><br />
-          à connaître.
+          The <span class="glow-text-green">4 concepts</span><br />
+          to know.
         </h2>
         <p class="mt-4 text-[var(--color-text-muted)] max-w-xl text-lg">
-          Clique sur une carte pour la déplier. Chaque concept vient avec son analogie, son
-          explication et une mini-démo interactive.
+          Click a card to open it. Every concept comes with its analogy, a plain-English
+          explanation, and a hands-on mini demo.
         </p>
       </div>
 

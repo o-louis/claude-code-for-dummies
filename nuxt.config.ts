@@ -14,15 +14,15 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'Claude Code pour les nuls',
-      htmlAttrs: { lang: 'fr' },
+      title: 'Claude Code for Dummies',
+      htmlAttrs: { lang: 'en' },
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           name: 'description',
           content:
-            'Les 4 concepts de Claude Code expliqués simplement, avec des analogies du quotidien.',
+            'The four core concepts of Claude Code, explained in plain English with everyday analogies.',
         },
       ],
     },

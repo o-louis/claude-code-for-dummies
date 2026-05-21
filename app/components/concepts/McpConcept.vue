@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// MCP : Claude central, des services qui se "branchent" via des connecteurs animés
+// MCP: Claude in the center, services "plugging in" via animated connectors
 const services = [
   { name: 'GitHub', icon: 'lucide:github' },
   { name: 'Slack', icon: 'lucide:message-square' },
@@ -25,7 +25,7 @@ const positions = [
 <template>
   <div class="terminal-frame p-6 bg-[var(--color-bg)]/40">
     <p class="font-mono text-xs text-[var(--color-text-dim)] mb-4">
-      // clique sur un service pour le brancher à Claude via MCP
+      // click a service to plug it into Claude via MCP
     </p>
 
     <div class="relative h-52 flex items-center justify-center">
@@ -40,7 +40,7 @@ const positions = [
             :class="{ 'animate-pulse-glow': pluggedCount > 0 }"
           />
           <span class="font-mono text-xs text-[var(--color-text)]">claude</span>
-          <span class="font-mono text-[10px] text-[var(--color-mcp)]">{{ pluggedCount }} ports actifs</span>
+          <span class="font-mono text-[10px] text-[var(--color-mcp)]">{{ pluggedCount }} ports active</span>
         </div>
       </div>
 
@@ -95,9 +95,9 @@ const positions = [
     </div>
 
     <p class="font-mono text-xs text-center text-[var(--color-text-dim)] mt-2">
-      <span v-if="pluggedCount === 0">aucun service branché</span>
+      <span v-if="pluggedCount === 0">no service plugged in</span>
       <span v-else class="text-[var(--color-mcp)]">
-        {{ pluggedCount }} service{{ pluggedCount > 1 ? 's' : '' }} accessible{{ pluggedCount > 1 ? 's' : '' }}
+        {{ pluggedCount }} service{{ pluggedCount > 1 ? 's' : '' }} reachable
       </span>
     </p>
   </div>

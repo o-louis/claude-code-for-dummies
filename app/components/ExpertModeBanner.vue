@@ -20,7 +20,7 @@ defineProps<{ active: boolean }>()
         <Icon name="lucide:sparkles" class="w-4 h-4 text-[var(--color-neon-purple)] animate-pulse-glow" />
         <span class="glow-text-purple uppercase tracking-widest">expert mode unlocked</span>
         <span class="text-[var(--color-text-muted)] hidden sm:inline">
-          — tu as trouvé l'easter egg. Code Konami détecté.
+          — you found the easter egg. Konami code detected.
         </span>
       </div>
     </div>

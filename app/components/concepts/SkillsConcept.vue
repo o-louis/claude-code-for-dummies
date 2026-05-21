@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// Skills : 4 outils disposés autour de claude (manche). Clic = celui-là s'illumine.
+// Skills: 4 tools laid out around the claude "handle". Click = that one lights up.
 interface Tool {
   name: string
   icon: string
@@ -8,10 +8,10 @@ interface Tool {
 }
 
 const tools: Tool[] = [
-  { name: 'changelog', icon: 'lucide:scroll-text', description: 'génère un CHANGELOG depuis les commits', pos: 'top' },
-  { name: 'docs-gen', icon: 'lucide:book-open', description: 'rédige la doc d’un module', pos: 'right' },
-  { name: 'commit-msg', icon: 'lucide:git-commit', description: 'rédige un message de commit propre', pos: 'bottom' },
-  { name: 'pr-writer', icon: 'lucide:git-pull-request', description: 'prépare titre + description de PR', pos: 'left' },
+  { name: 'changelog', icon: 'lucide:scroll-text', description: 'builds a CHANGELOG from your commits', pos: 'top' },
+  { name: 'docs-gen', icon: 'lucide:book-open', description: 'writes docs for a module', pos: 'right' },
+  { name: 'commit-msg', icon: 'lucide:git-commit', description: 'writes a clean commit message', pos: 'bottom' },
+  { name: 'pr-writer', icon: 'lucide:git-pull-request', description: 'drafts a PR title and description', pos: 'left' },
 ]
 
 const activeIdx = ref<number | null>(null)
@@ -27,7 +27,7 @@ const positionClass: Record<Tool['pos'], string> = {
   left: 'left-0 top-1/2 -translate-y-1/2',
 }
 
-// coordonnées SVG (en %) pour tracer les liaisons claude ↔ outil
+// SVG coordinates (in %) for the claude ↔ tool connector lines
 const linePos: Record<Tool['pos'], { x: string; y: string }> = {
   top: { x: '50%', y: '15%' },
   right: { x: '85%', y: '50%' },
@@ -52,7 +52,7 @@ function getTransformBase(pos: Tool['pos']): string {
 <template>
   <div class="terminal-frame p-6 bg-[var(--color-bg)]/40">
     <p class="font-mono text-xs text-[var(--color-text-dim)] mb-4">
-      // Claude a plusieurs skills en réserve. Clique pour activer celui qui colle au besoin.
+      // Claude has several skills on standby. Click one to activate the one that fits the job.
     </p>
 
     <div class="relative h-56 mx-auto max-w-md">
@@ -112,7 +112,7 @@ function getTransformBase(pos: Tool['pos']): string {
       </button>
     </div>
 
-    <!-- Caption sous la démo -->
+    <!-- Caption below the demo -->
     <div class="mt-2 min-h-[2.5rem] font-mono text-xs text-center">
       <Transition
         mode="out-in"
@@ -126,7 +126,7 @@ function getTransformBase(pos: Tool['pos']): string {
           <span class="text-[var(--color-text-muted)]"> · {{ activeTool.description }}</span>
         </p>
         <p v-else key="idle" class="text-[var(--color-text-dim)]">
-          // aucun skill actif — clique sur un outil
+          // no active skill — click a tool
         </p>
       </Transition>
     </div>

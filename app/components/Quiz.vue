@@ -62,10 +62,10 @@ function fireConfetti() {
 const finalRating = computed(() => {
   const total = questions.length
   const ratio = score.value / total
-  if (ratio === 1) return { label: 'sans-faute', glow: 'green', message: 'Tu maîtrises. Va prêcher la bonne parole.' }
-  if (ratio >= 0.7) return { label: 'solide', glow: 'cyan', message: 'Tu peux te lancer sans crainte.' }
-  if (ratio >= 0.4) return { label: 'en chemin', glow: 'purple', message: 'Relis les concepts plus haut, puis re-essaie.' }
-  return { label: 'à reprendre', glow: 'orange', message: 'Remonte tout en haut, prends ton temps, ça va venir.' }
+  if (ratio === 1) return { label: 'flawless', glow: 'green', message: 'You\'ve got this. Go spread the word.' }
+  if (ratio >= 0.7) return { label: 'solid', glow: 'cyan', message: 'You can jump in with confidence.' }
+  if (ratio >= 0.4) return { label: 'getting there', glow: 'purple', message: 'Skim the concepts above and give it another shot.' }
+  return { label: 'restart recommended', glow: 'orange', message: 'Scroll back to the top, take your time — it\'ll click.' }
 })
 
 function getOptionClass(id: ConceptId): string {
@@ -91,11 +91,11 @@ function getOptionClass(id: ConceptId): string {
           // section 02
         </p>
         <h2 class="font-display text-4xl md:text-6xl font-bold leading-[0.95] tracking-tight">
-          <span class="glow-text-purple">Quel outil</span><br />
-          pour quel besoin ?
+          <span class="glow-text-purple">Which tool</span><br />
+          for which job?
         </h2>
         <p class="mt-4 text-[var(--color-text-muted)] text-lg">
-          {{ questions.length }} situations concrètes. À chaque fois : choisis le bon concept.
+          {{ questions.length }} real-world situations. Pick the right concept each time.
         </p>
       </div>
 
@@ -117,7 +117,7 @@ function getOptionClass(id: ConceptId): string {
         <div class="p-6 md:p-8">
           <p class="font-mono text-xs text-[var(--color-text-dim)] mb-3">
             // situation
-            <span v-if="current.hint" class="ml-2 text-[var(--color-text-muted)]"> — indice : {{ current.hint }}</span>
+            <span v-if="current.hint" class="ml-2 text-[var(--color-text-muted)]"> — hint: {{ current.hint }}</span>
           </p>
           <p class="font-display text-xl md:text-2xl text-[var(--color-text)] mb-6 leading-snug">
             {{ current.situation }}
@@ -164,7 +164,7 @@ function getOptionClass(id: ConceptId): string {
               "
             >
               <p class="font-mono text-xs mb-2" :class="isCorrect ? 'glow-text-green' : 'text-[var(--color-neon-pink)]'">
-                {{ isCorrect ? '✓ exact' : '✗ raté' }}
+                {{ isCorrect ? '✓ nailed it' : '✗ not quite' }}
               </p>
               <p class="text-[var(--color-text)] text-sm leading-relaxed">
                 {{ current.explanation }}
@@ -173,7 +173,7 @@ function getOptionClass(id: ConceptId): string {
                 class="mt-4 font-mono text-xs px-4 py-2 rounded border border-[var(--color-text)] text-[var(--color-text)] hover:bg-[var(--color-text)]/10 transition-colors"
                 @click="next"
               >
-                {{ currentIdx + 1 < questions.length ? 'suivante →' : 'voir le score →' }}
+                {{ currentIdx + 1 < questions.length ? 'next →' : 'see the score →' }}
               </button>
             </div>
           </Transition>
@@ -182,7 +182,7 @@ function getOptionClass(id: ConceptId): string {
 
       <!-- Final score -->
       <div v-else class="terminal-frame p-8 md:p-12 text-center">
-        <p class="font-mono text-xs text-[var(--color-text-dim)] mb-4">// rapport final</p>
+        <p class="font-mono text-xs text-[var(--color-text-dim)] mb-4">// final report</p>
         <p class="font-display text-7xl md:text-8xl font-bold mb-3" :class="`glow-text-${finalRating.glow}`">
           {{ score }}<span class="text-[var(--color-text-muted)] text-4xl">/{{ questions.length }}</span>
         </p>
@@ -210,7 +210,7 @@ function getOptionClass(id: ConceptId): string {
           class="font-mono text-sm px-5 py-2 rounded border border-[var(--color-neon-green)] text-[var(--color-neon-green)] hover:bg-[var(--color-neon-green)]/10 transition-colors"
           @click="reset"
         >
-          ↻ recommencer
+          ↻ start over
         </button>
       </div>
     </div>

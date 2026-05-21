@@ -1,10 +1,10 @@
 <script setup lang="ts">
-// Hooks : un événement déclenche une chaîne de dominos automatique
+// Hooks: an event triggers an automatic domino chain
 
 const events = [
   { trigger: 'PostToolUse', then: 'prettier --write', icon: 'lucide:wand' },
-  { trigger: 'PreToolUse', then: 'block si tests rouges', icon: 'lucide:shield-check' },
-  { trigger: 'Stop', then: 'notif slack', icon: 'lucide:bell' },
+  { trigger: 'PreToolUse', then: 'block if tests are red', icon: 'lucide:shield-check' },
+  { trigger: 'Stop', then: 'slack notification', icon: 'lucide:bell' },
 ]
 
 const activeHook = ref(0)
@@ -31,10 +31,10 @@ async function fire() {
 <template>
   <div class="terminal-frame p-6 bg-[var(--color-bg)]/40">
     <p class="font-mono text-xs text-[var(--color-text-dim)] mb-4">
-      // choisis un hook, déclenche l'événement, regarde la cascade
+      // pick a hook, fire the event, watch the cascade
     </p>
 
-    <!-- Sélecteur d'événements -->
+    <!-- Event selector -->
     <div class="flex flex-wrap gap-2 mb-6">
       <button
         v-for="(e, i) in events"
@@ -98,7 +98,7 @@ async function fire() {
         class="font-mono text-xs px-3 py-1.5 rounded border border-[var(--color-hooks)] text-[var(--color-hooks)] hover:bg-[var(--color-hooks)]/10 transition-colors"
         @click="fire"
       >
-        ⚡ déclencher {{ events[activeHook]!.trigger }}
+        ⚡ fire {{ events[activeHook]!.trigger }}
       </button>
     </div>
   </div>
