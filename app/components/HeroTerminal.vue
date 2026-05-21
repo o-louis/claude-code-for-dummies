@@ -1,13 +1,13 @@
 <script setup lang="ts">
 const lines = [
   { text: '$ claude --help', kind: 'cmd' as const, delay: 60 },
-  { text: 'Bienvenue, humain.', kind: 'out' as const, delay: 30 },
-  { text: 'Voici les 4 concepts qui font la magie de Claude Code :', kind: 'out' as const, delay: 25 },
+  { text: 'Welcome, human.', kind: 'out' as const, delay: 30 },
+  { text: 'Here are the 4 concepts behind the magic of Claude Code:', kind: 'out' as const, delay: 25 },
   { text: '  → Skills', kind: 'skill' as const, delay: 25 },
   { text: '  → Subagents', kind: 'subagent' as const, delay: 25 },
   { text: '  → MCP', kind: 'mcp' as const, delay: 25 },
   { text: '  → Hooks', kind: 'hook' as const, delay: 25 },
-  { text: '$ scroll pour explorer ↓', kind: 'cmd' as const, delay: 60 },
+  { text: '$ scroll to explore ↓', kind: 'cmd' as const, delay: 60 },
 ]
 
 type Line = (typeof lines)[number]
@@ -67,17 +67,17 @@ function scrollToConcepts() {
       :enter="{ opacity: 1, y: 0, transition: { duration: 600 } }"
     >
       <p class="font-mono text-xs uppercase tracking-[0.3em] text-[var(--color-text-muted)] mb-4">
-        // un guide visuel pour débutants
+        // a visual guide for beginners
       </p>
       <h1 class="font-display font-bold text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight">
         <span class="block text-[var(--color-text)]">CLAUDE CODE</span>
         <span class="block">
-          <span class="glow-text-green">POUR LES</span>
-          <span class="glow-text-purple"> NULS</span>
+          <span class="glow-text-green">FOR</span>
+          <span class="glow-text-purple"> DUMMIES</span>
         </span>
       </h1>
       <p class="mt-6 text-[var(--color-text-muted)] max-w-xl mx-auto text-lg">
-        4 concepts, 4 analogies. Tu finis ce site et tu sais ce que Claude Code peut faire pour toi.
+        4 concepts, 4 analogies. By the end of this page, you'll know what Claude Code can do for you.
       </p>
     </div>
 
@@ -115,7 +115,7 @@ function scrollToConcepts() {
       :initial="{ opacity: 0 }"
       :enter="{ opacity: 1, transition: { delay: 1800, duration: 600 } }"
     >
-      <span class="font-mono text-xs uppercase tracking-widest">Explorer</span>
+      <span class="font-mono text-xs uppercase tracking-widest">Explore</span>
       <Icon name="lucide:chevron-down" class="w-5 h-5 animate-float group-hover:text-[var(--color-neon-green)]" />
     </button>
   </section>

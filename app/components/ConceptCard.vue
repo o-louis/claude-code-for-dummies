@@ -64,7 +64,7 @@ const glowText = computed(() => `glow-text-${props.concept.accent}`)
           <div class="space-y-6">
             <div>
               <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-text-dim)] mb-2">
-                # analogie
+                # analogy
               </p>
               <p class="font-display text-xl font-bold mb-2" :class="glowText">
                 {{ concept.analogy.title }}
@@ -74,14 +74,14 @@ const glowText = computed(() => `glow-text-${props.concept.accent}`)
 
             <div>
               <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-text-dim)] mb-2">
-                # en clair
+                # in plain English
               </p>
               <p class="text-[var(--color-text)] leading-relaxed">{{ concept.pitch }}</p>
             </div>
 
             <div>
               <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-text-dim)] mb-2">
-                # comment ça marche
+                # how it works
               </p>
               <ol class="space-y-2">
                 <li
@@ -104,13 +104,13 @@ const glowText = computed(() => `glow-text-${props.concept.accent}`)
           <!-- Right column: live demo + example -->
           <div class="space-y-6">
             <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-text-dim)]">
-              # démo
+              # demo
             </p>
             <slot name="demo" />
 
             <div>
               <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-text-dim)] mb-2">
-                # exemple
+                # example
               </p>
               <div class="font-mono text-sm space-y-2 bg-[var(--color-bg)] rounded-lg p-4 border border-[var(--color-border)]">
                 <div>

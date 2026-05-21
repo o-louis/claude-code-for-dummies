@@ -11,51 +11,51 @@ export interface QuizQuestion {
 const questions: QuizQuestion[] = [
   {
     id: 1,
-    situation: 'Je veux que Claude formate automatiquement mon code après chaque édition, sans avoir à le demander.',
-    hint: 'Ça se déclenche tout seul sur un événement.',
+    situation: 'I want Claude to auto-format my code after every edit, without me asking.',
+    hint: 'Something that fires on its own when an event happens.',
     answer: 'hooks',
     explanation:
-      'C\'est exactement le boulot d\'un Hook : un événement (« édition de fichier ») déclenche un script (prettier) automatiquement.',
+      'That\'s exactly what a Hook does: an event (\"file edited\") triggers a script (prettier) automatically.',
   },
   {
     id: 2,
-    situation: 'Je veux apprendre à Claude ma propre méthode pour rédiger des messages de commit, et qu\'il l\'utilise à chaque fois.',
-    hint: 'Une fiche que Claude consulte quand il en a besoin.',
+    situation: 'I want to teach Claude my own way of writing commit messages, and have it apply that every time.',
+    hint: 'A reusable note Claude pulls out when relevant.',
     answer: 'skills',
     explanation:
-      'C\'est un Skill : tu écris une fiche « comment je veux mes commits » et Claude l\'applique dès que le besoin se présente.',
+      'That\'s a Skill: you write a note saying "here\'s how I want commits" and Claude applies it whenever the need shows up.',
   },
   {
     id: 3,
-    situation: 'Je veux que Claude puisse ouvrir des PRs et commenter des issues sur mon GitHub.',
-    hint: 'Il faut le brancher à un service externe.',
+    situation: 'I want Claude to open PRs and comment on issues in my GitHub.',
+    hint: 'Connect Claude to an external service.',
     answer: 'mcp',
     explanation:
-      'MCP est le pont vers les services externes. Le serveur MCP GitHub donne à Claude les bons outils pour interagir avec ton repo.',
+      'MCP is the bridge to external services. The GitHub MCP server gives Claude the right tools to interact with your repo.',
   },
   {
     id: 4,
-    situation: 'Je veux qu\'une recherche dans 500 fichiers ne pollue pas ma conversation principale avec des tonnes de résultats.',
-    hint: 'Déléguer le boulot à quelqu\'un d\'autre.',
+    situation: 'I don\'t want a search across 500 files to flood my main conversation with results.',
+    hint: 'Delegate the heavy lifting to someone else.',
     answer: 'subagents',
     explanation:
-      'Un Subagent fait le boulot dans sa propre bulle et te renvoie juste la synthèse. Ton contexte reste propre.',
+      'A Subagent does the heavy work in its own bubble and only sends back the summary. Your main context stays clean.',
   },
   {
     id: 5,
-    situation: 'Je veux empêcher Claude de pousser sur main sans tests verts.',
-    hint: 'Un garde-fou qui s\'exécute au bon moment.',
+    situation: 'I want to stop Claude from pushing to main when tests are red.',
+    hint: 'A guardrail that runs at the right moment.',
     answer: 'hooks',
     explanation:
-      'Un Hook PreToolUse peut bloquer une commande avant qu\'elle ne s\'exécute. Parfait pour un garde-fou.',
+      'A PreToolUse Hook can block a command before it runs. Perfect for a guardrail.',
   },
   {
     id: 6,
-    situation: 'Je veux connecter Claude à ma base Postgres pour qu\'il puisse écrire des requêtes et voir les résultats.',
-    hint: 'Brancher un service externe via un protocole standard.',
+    situation: 'I want to connect Claude to my Postgres database so it can write queries and see the results.',
+    hint: 'Plug an external service in through a standard protocol.',
     answer: 'mcp',
     explanation:
-      'Encore MCP : un serveur MCP pour Postgres expose la base à Claude de façon propre, sans bricolage maison.',
+      'Still MCP: a Postgres MCP server exposes your database to Claude cleanly, without any custom plumbing.',
   },
 ]
 

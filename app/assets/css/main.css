@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 @theme {
-  /* Palette terminal néon */
+  /* Neon terminal palette */
   --color-bg: #0a0b14;
   --color-bg-elevated: #11131f;
   --color-bg-card: #131626;

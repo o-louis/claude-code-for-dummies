@@ -3,32 +3,32 @@ const { list } = useConcepts()
 
 const rows = [
   {
-    label: 'C\'est quoi en 5 mots',
-    skills: 'fiches de compétence',
-    subagents: 'stagiaires délégués',
-    mcp: 'pont vers services',
-    hooks: 'réactions automatiques',
+    label: 'In 5 words',
+    skills: 'reusable ability cards',
+    subagents: 'delegated specialist interns',
+    mcp: 'bridge to services',
+    hooks: 'automatic event reactions',
   },
   {
-    label: 'Tu utilises quand',
-    skills: 'tu veux apprendre un savoir-faire',
-    subagents: 'tu veux déléguer une tâche',
-    mcp: 'tu veux brancher un service',
-    hooks: 'tu veux automatiser un événement',
+    label: 'Reach for it when',
+    skills: 'you want to teach a know-how',
+    subagents: 'you want to delegate a task',
+    mcp: 'you want to plug in a service',
+    hooks: 'you want to automate on an event',
   },
   {
-    label: 'Tu actives comment',
-    skills: 'fichier .md dans /skills',
-    subagents: 'agent dans /agents',
-    mcp: 'config serveur MCP',
-    hooks: 'config dans settings.json',
+    label: 'How you set it up',
+    skills: 'an .md file in /skills',
+    subagents: 'an agent in /agents',
+    mcp: 'MCP server config',
+    hooks: 'an entry in settings.json',
   },
   {
-    label: 'Initiative',
-    skills: 'Claude décide',
-    subagents: 'Claude délègue',
-    mcp: 'Claude appelle',
-    hooks: 'le système déclenche',
+    label: 'Who initiates',
+    skills: 'Claude picks it up',
+    subagents: 'Claude delegates',
+    mcp: 'Claude calls out',
+    hooks: 'the system fires it',
   },
 ]
 </script>
@@ -41,7 +41,7 @@ const rows = [
           // section 03
         </p>
         <h2 class="font-display text-4xl md:text-6xl font-bold leading-[0.95] tracking-tight">
-          <span class="glow-text-cyan">Récap</span> en un coup d'œil.
+          <span class="glow-text-cyan">Recap</span> at a glance.
         </h2>
       </div>
 

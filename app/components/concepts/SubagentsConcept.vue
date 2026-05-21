@@ -1,12 +1,12 @@
 <script setup lang="ts">
-// Subagents : on envoie 3 stagiaires en mission, ils reviennent avec un rapport
+// Subagents: dispatch 3 interns on a mission, they come back with a report
 type Phase = 'idle' | 'dispatching' | 'working' | 'returning' | 'done'
 
 const phase = ref<Phase>('idle')
 const agents = [
-  { name: 'Explore', task: 'scanner le repo', icon: 'lucide:search', result: '12 matchs' },
-  { name: 'Plan', task: 'rédiger un plan', icon: 'lucide:file-text', result: 'plan en 6 étapes' },
-  { name: 'Review', task: 'reviewer le diff', icon: 'lucide:check-check', result: '2 nits, 1 bug' },
+  { name: 'Explore', task: 'scan the repo', icon: 'lucide:search', result: '12 matches' },
+  { name: 'Plan', task: 'draft a plan', icon: 'lucide:file-text', result: '6-step plan' },
+  { name: 'Review', task: 'review the diff', icon: 'lucide:check-check', result: '2 nits, 1 bug' },
 ]
 
 async function runMission() {
@@ -41,11 +41,11 @@ function agentTransform(i: number): string {
 <template>
   <div class="terminal-frame p-6 bg-[var(--color-bg)]/40">
     <p class="font-mono text-xs text-[var(--color-text-dim)] mb-4">
-      // lance la mission — 3 agents partent travailler en parallèle
+      // start the mission — 3 agents head out and work in parallel
     </p>
 
     <div class="relative h-56">
-      <!-- Claude principal (toi, chef de projet) -->
+      <!-- Main Claude (you, the project lead) -->
       <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
         <div
           class="px-4 py-3 rounded-lg border bg-[var(--color-bg-card)] flex flex-col items-center gap-1 transition-shadow duration-500"
@@ -98,12 +98,12 @@ function agentTransform(i: number): string {
         class="font-mono text-xs px-3 py-1.5 rounded border border-[var(--color-subagents)] text-[var(--color-subagents)] hover:bg-[var(--color-subagents)]/10 transition-colors"
         @click="runMission"
       >
-        {{ phase === 'done' ? '↻ relancer' : '▶ dispatcher 3 agents' }}
+        {{ phase === 'done' ? '↻ run again' : '▶ dispatch 3 agents' }}
       </button>
       <span v-else class="font-mono text-xs text-[var(--color-text-muted)] py-1.5">
-        <span v-if="phase === 'dispatching'">→ envoi des agents...</span>
-        <span v-else-if="phase === 'working'">⚙ ils bossent en parallèle...</span>
-        <span v-else>← rapports en route</span>
+        <span v-if="phase === 'dispatching'">→ sending agents...</span>
+        <span v-else-if="phase === 'working'">⚙ working in parallel...</span>
+        <span v-else>← reports incoming</span>
       </span>
     </div>
   </div>
