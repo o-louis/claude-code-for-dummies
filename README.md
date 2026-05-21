@@ -1,75 +1,29 @@
-# Nuxt Minimal Starter
+# Claude Code for Dummies
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A one-page site that explains the four core concepts of Claude Code — **Skills**, **Subagents**, **MCP**, and **Hooks** — in plain English, with everyday analogies.
 
-## Setup
+Built with Nuxt 4, Tailwind v4, and a healthy dose of neon.
 
-Make sure to install dependencies:
+## Getting started
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+Open [http://localhost:3000](http://localhost:3000).
 
-Build the application for production:
+## Scripts
 
-```bash
-# npm
-npm run build
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Start the dev server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview the production build |
+| `npm run generate` | Generate a static site |
 
-# pnpm
-pnpm build
+## Tips
 
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- Type `claude /help` in the hero terminal to see every command.
+- Tab autocompletes, ↑/↓ walks through history.
+- There's an easter egg. The Konami code still works in 2026.
